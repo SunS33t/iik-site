@@ -1,6 +1,7 @@
 @import url(./variables.css);
 @import url(./reset.css);
 @import url(./font.css);
+@import url(./helpers.css);
 
 * {
     font-family: TT Norms M;
@@ -23,6 +24,7 @@ body {
 }
 
 .navigation-logo {
+    font-family: Bicubik;
     font-size: 32px;
     flex-grow: 1;
 }
@@ -109,6 +111,10 @@ body {
     font-weight: 500;
 }
 
+.directions-list-item * {
+    transition: transform 0.25s ease-in, opacity 0.25s ease-in;
+}
+
 .directions-list-item {
     position: relative;
     overflow: hidden;
@@ -124,18 +130,20 @@ body {
     grid-template-columns: 1fr 200px;
 }
 
-.directions-list-item__opened {
-    grid-template:
-        'title btn'
-        'description btn'
-        'details empty';
-    grid-template-columns: 1fr 200px;
-}
-
 .directions-list-item__title {
     grid-area: title;
     font-size: 32px;
     font-family: TT Norms B;
+}
+
+.direction-details {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: 500ms grid-template-rows ease;
+}
+
+.direction-details > div {
+    overflow: hidden;
 }
 
 .directions-list-item__description {
@@ -171,8 +179,10 @@ body {
 }
 
 .directions-list-item__btn {
+    cursor: pointer;
     grid-area: btn;
     border: unset;
+    border-radius: 100%;
     color: var(--main-text-color);
     background-color: unset;
     width: 32px;
@@ -183,9 +193,10 @@ body {
 }
 
 .circles {
-    position: absolute;
+
+    /* position: absolute;
     right: 55px;
-    top: 55px;
+    top: 55px; */
     z-index: -1;
 }
 
@@ -195,28 +206,28 @@ body {
 }
 
 .circles__circle1 {
-    transform: translate(-225px, -225px);
+    transform: translate(-210px, -210px);
     width: 450px;
     height: 450px;
     background-color: rgba(0, 202, 255, .15);
 }
 
 .circles__circle2 {
-    transform: translate(-175px, -175px);
+    transform: translate(-160px, -160px);
     width: 350px;
     height: 350px;
     background-color: rgba(0, 202, 255, .15);
 }
 
 .circles__circle3 {
-    transform: translate(-125px, -125px);
+    transform: translate(-110px, -110px);
     width: 250px;
     height: 250px;
     background-color: rgba(0, 202, 255, .15);
 }
 
 .circles__circle4 {
-    transform: translate(-75px, -75px);
+    transform: translate(-60px, -60px);
     width: 150px;
     height: 150px;
     background-color: rgb(0, 202, 255);
@@ -309,7 +320,7 @@ select::-ms-expand {
     -moz-appearance: none;
     appearance: none;
     border: unset;
-    width: 90%;
+    width: 100%;
 }
 
 .select-event__icon {
@@ -318,6 +329,7 @@ select::-ms-expand {
     top: 10.5px;
     width: 23px;
     height: 23px;
+    z-index: -1;
 }
 
 .input {
@@ -365,7 +377,7 @@ select::-ms-expand {
 
 .footer {
     display: grid;
-    padding: 50px 15%;
+    padding: 50px 215px;
     grid-template-columns: 270px 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 50px;

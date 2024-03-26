@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <title>ИИК</title>
+    <script defer src="./script.js"></script>
 </head>
 
 <body>
@@ -140,16 +141,25 @@
                         <img class="btn-icon" src="./svg/open-btn.svg" alt="Open button" />
                     </button>
                 </div>
-                <div class="directions-list-item directions-list-item__opened">
+                <div class="directions-list-item">
                     <div class="directions-list-item__title">Безопасность открытых информационных систем</div>
                     <div class="directions-list-item__description">Информационная безопасность автоматизированных систем
                         <br />
                         Код: 10.05.03
                     </div>
-                    <button class="directions-list-item__btn">
+                    <button class="directions-list-item__btn directions-list-item__btn__opened" onclick="onDirectionItemClick(event)">
+                        <div class="circles" isExpanded="true">
+                            <div class="circle circles__circle1 opacity-1"></div>
+                            <div class="circle circles__circle2 opacity-1"></div>
+                            <div class="circle circles__circle3 opacity-1"></div>
+                            <div class="circle circles__circle4 opacity-1"></div>
+                        </div>
                         <img class="btn-icon btn-icon--reverted" src="./svg/open-btn.svg" alt="Open button" />
+                        
                     </button>
+                    
                     <div class="direction-details directions-list-item__details">
+                        <div>
                         <table class="direction-details__dates">
                             <tr>
                                 <th>Cрок обучения</th>
@@ -199,12 +209,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="circles">
-                        <div class="circle circles__circle1"></div>
-                        <div class="circle circles__circle2"></div>
-                        <div class="circle circles__circle3"></div>
-                        <div class="circle circles__circle4"></div>
-                    </div>
+                </div>
                 </div>
                 <div class="directions-list-item">
                     <div class="directions-list-item__title">Проектирование и технология электронных средств</div>
@@ -311,13 +316,14 @@
                 Записаться на мероприятие
             </div>
             <form class="add-to-event">
-                <div class="select-event">
-                    <select class="select-event__select" placeholder="Мероприятие">
+                <div class="select-event" onclick="selectEvent(event)">
+                    <select id="select-event" class="select-event__select" placeholder="Мероприятие">
                         <option value="" selected>Мероприятие</option>
                         <option value="">Мероприятие 1</option>
                         <option value="">Мероприятие 2</option>
                     </select>
-                    <img class="btn-icon select-event__icon" src="./svg/open-btn.svg" alt="Open button" />
+                
+                    <img  class="btn-icon select-event__icon" src="./svg/open-btn.svg" alt="Open button">
                 </div>
                 <div>
                     <input class="input" type="text" placeholder="Фамилия Имя Отчество">
@@ -326,7 +332,7 @@
                     <input class="input" type="tel" placeholder="Номер телефона">
                 </div>
                 <div class="add-to-event__checkbox">
-                    <input class="checkbox" type="checkbox">
+                    <input id="event" class="checkbox" type="checkbox">
                     <label for="event">Нажимая кнопку, Вы соглашаетесь с политикой конфиденциальности</label>
                 </div>
                 <div class="add-to-event__btn primary-button">
